@@ -12,6 +12,12 @@
         <module>SampleWar</module>
     </modules>
     <packaging>pom</packaging>
+    
+    <properties>
+    	<spring.context.version>4.3.5.RELEASE</spring.context.version>
+    	<spring.web.version>4.3.5.RELEASE</spring.web.version>
+    	<spring.security.version>4.2.1.RELEASE</spring.security.version>
+    </properties>
 
     <dependencyManagement>
         <dependencies>
@@ -42,14 +48,14 @@
 
     <build>
         <plugins>
-            <plugin>
+<!--             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
                 <version>2.5.3</version>
                 <configuration>
                     <autoVersionSubmodules>true</autoVersionSubmodules>
                 </configuration>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>

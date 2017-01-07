@@ -1,42 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>sample-project</artifactId>
-        <groupId>com.alex.st</groupId>
-        <version>1.0.0-SNAPSHOT</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>sample-project</artifactId>
+		<groupId>com.alex.st</groupId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sample-ear</artifactId>
+	<artifactId>sample-ear</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.alex.st</groupId>
-            <artifactId>sample-war</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
-    </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>com.alex.st</groupId>
+			<artifactId>sample-war</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+			<type>war</type>
+		</dependency>
+	</dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ear-plugin</artifactId>
-                <version>2.10.1</version>
-                <configuration>
-                    <generateApplicationXml>true</generateApplicationXml>
-                    <modules>
-                        <webModule>
-                            <groupId>com.alex.st</groupId>
-                            <artifactId>sample-war</artifactId>
-                        </webModule>
-                    </modules>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10.1</version>
+				<configuration>
+					<generateApplicationXml>true</generateApplicationXml>
+					<version>7</version>
+					<modules>
+						<webModule>
+							<groupId>com.alex.st</groupId>
+							<artifactId>sample-war</artifactId>
+							<contextRoot>/store</contextRoot>
+						</webModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
