@@ -6,6 +6,10 @@
 		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
+		
+	
+
+	<security:http pattern="/token" security="none"/>
 
 	<bean id="restAuthenticationEntryPoint"
 		class="com.alex.store.rest.security.RestAuthenticationEntryPoint" />
@@ -27,10 +31,6 @@
 			ref="authManager">
 		</constructor-arg>
 	</bean>
-
-	<security:http auto-config="true">
-		<security:intercept-url pattern="/token/**" access="ROLE_USER" />
-	</security:http>
 
 	<security:authentication-manager alias="authManager" erase-credentials="true">
 		<security:authentication-provider>

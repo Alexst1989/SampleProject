@@ -29,4 +29,14 @@
 		<url-pattern>/rest</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<description>Token Servlet</description>
+		<servlet-name>TokenServlet</servlet-name>
+		<servlet-class>com.alex.store.rest.security.token.TokenServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TokenServlet</servlet-name>
+		<url-pattern>/token</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
