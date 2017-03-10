@@ -16,7 +16,7 @@ public class CryptoService {
 	
 	private static final Logger LOGGER = LogManager.getLogger(CryptoService.class);
 	
-	public String constructToken(String ) {
+	public String constructToken() {
 		try {
 		    String token = JWT.create()
 		        .withIssuer("auth0")
