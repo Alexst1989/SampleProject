@@ -1,7 +1,11 @@
 package com.alex.store.rest.security.token;
 
-public class Credentials {
+import com.alex.store.rest.RequestBody;
+
+public class Credentials extends RequestBody {
 	
+	private static final long serialVersionUID = 3638511604780451997L;
+
 	private String login;
 	
 	private String password;

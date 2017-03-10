@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configurationImpl>
+	<domainName>alex.store.ru</domainName>
+	<productName>AlexStore</productName>
+	<tokenCookieName>STORE_TOKEN</tokenCookieName>
+	<version>0.0.1</version>
+</configurationImpl>

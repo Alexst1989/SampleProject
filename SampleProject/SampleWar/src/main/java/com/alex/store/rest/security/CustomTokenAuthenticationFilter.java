@@ -4,20 +4,24 @@ import java.io.IOException;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationServiceException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
-import org.springframework.security.core.token.Token;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
+import com.alex.store.config.Environment;
+
 public class CustomTokenAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
+	
+	@Autowired
+	private Environment env;
 
     //@Autowired
     //private CryptService cryptService; //service which can decrypt token
@@ -30,11 +34,14 @@ public class CustomTokenAuthenticationFilter extends AbstractAuthenticationProce
         //setAuthenticationSuccessHandler(new TokenSimpleUrlAuthenticationSuccessHandler());
     }
 
-    public final String HEADER_SECURITY_TOKEN = "My-Rest-Token";
-
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException, ServletException {
-        String token = request.getHeader(HEADER_SECURITY_TOKEN);
+        String token = null;
+        for (Cookie cookie: request.getCookies()) {
+        	if (cookie.getName().equals(env.getTokenCookieName())) {
+        		token = cookie.getValue();
+        	}
+        }
         Authentication userAuthenticationToken = parseToken(token);
         if (userAuthenticationToken == null) {
             throw new AuthenticationServiceException("here we throw some exception or text");

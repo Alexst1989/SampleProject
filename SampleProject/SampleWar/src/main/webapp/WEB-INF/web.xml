@@ -32,7 +32,7 @@
 	<servlet>
 		<description>Token Servlet</description>
 		<servlet-name>TokenServlet</servlet-name>
-		<servlet-class>com.alex.store.rest.security.token.TokenServlet</servlet-class>
+		<servlet-class>org.springframework.web.context.support.HttpRequestHandlerServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>TokenServlet</servlet-name>
