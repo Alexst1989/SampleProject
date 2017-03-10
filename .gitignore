@@ -7,4 +7,6 @@
 **/.project
 
 .metadata/**
+.recommenders/**
+SampleProject/Docs/**
 rebel.xml
