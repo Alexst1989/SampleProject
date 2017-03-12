@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.HttpRequestHandler;
 
 import com.alex.store.security.Credentials;
-import com.alex.store.security.CryptoService;
+import com.alex.store.security.JwtTokenCryptService;
 import com.alex.store.utils.ServletUtils;
 
 @Component("TokenServlet")
@@ -24,7 +24,7 @@ public class TokenHandler implements HttpRequestHandler {
 	private ServletUtils utils;
 	
 	@Autowired
-	private CryptoService cryptoService;
+	private JwtTokenCryptService cryptoService;
 
 	@Override
 	public void handleRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {

@@ -26,7 +26,7 @@ public class CustomTokenAuthenticationFilter extends AbstractAuthenticationProce
 	private Environment env;
 
 	@Autowired
-	private CryptoService cryptService; // service which can decrypt token
+	private JwtTokenCryptService cryptService; 
 
 	public CustomTokenAuthenticationFilter(String defaultFilterProcessesUrl,
 			AuthenticationManager authenticationManager) {

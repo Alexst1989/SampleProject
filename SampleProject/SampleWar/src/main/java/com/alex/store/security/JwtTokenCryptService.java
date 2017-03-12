@@ -16,12 +16,12 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 
 
 @Component
-public class CryptoService {
+public class JwtTokenCryptService {
 	
 	@Autowired
 	private Environment env;
 	
-	private static final Logger LOGGER = LogManager.getLogger(CryptoService.class);
+	private static final Logger LOGGER = LogManager.getLogger(JwtTokenCryptService.class);
 	
 	private static final String SECRET = "mamamia";
 	
