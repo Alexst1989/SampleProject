@@ -1,4 +1,4 @@
-package com.alex.store.rest.security;
+package com.alex.store.security;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package com.alex.store.rest.security.token;
+package com.alex.store.security.token;
 
 import java.io.IOException;
 
@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.HttpRequestHandler;
 
+import com.alex.store.security.Credentials;
+import com.alex.store.security.CryptoService;
 import com.alex.store.utils.ServletUtils;
 
 @Component("TokenServlet")
@@ -20,14 +22,17 @@ public class TokenHandler implements HttpRequestHandler {
 
 	@Autowired
 	private ServletUtils utils;
+	
+	@Autowired
+	private CryptoService cryptoService;
 
 	@Override
 	public void handleRequest(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 		Credentials cred = utils.parseRequestBody(req, Credentials.class);
-		utils.addTokenCookie(resp, "asdWEsdasdasd asd as das d a sdas  das d");
+		utils.addTokenCookie(resp, cryptoService.constructToken(cred));
 		if (cred != null) {
 			LOGGER.info("Hello!");
-			LOGGER.info("Login = " + cred.getLogin());
+			LOGGER.info("Login = " + cred.getUserName());
 			LOGGER.info("Password = " + cred.getPassword());
 		}
 		resp.setStatus(HttpServletResponse.SC_OK);

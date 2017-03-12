@@ -1,4 +1,4 @@
-package com.alex.store.rest.servlet;
+package com.alex.store.rest;
 
 import java.util.Set;
 

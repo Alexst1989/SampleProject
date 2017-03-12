@@ -1,12 +1,12 @@
-package com.alex.store.rest.security.token;
+package com.alex.store.security;
 
 import com.alex.store.rest.RequestBody;
 
 public class Credentials extends RequestBody {
-	
-	private static final long serialVersionUID = 3638511604780451997L;
 
-	private String login;
+	private static final long serialVersionUID = -467392416512003616L;
+
+	private String userName;
 	
 	private String password;
 
@@ -18,12 +18,12 @@ public class Credentials extends RequestBody {
 		this.password = password;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 	
