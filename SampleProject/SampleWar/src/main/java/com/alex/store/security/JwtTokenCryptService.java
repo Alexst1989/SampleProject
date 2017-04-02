@@ -57,11 +57,10 @@ public class JwtTokenCryptService {
 			JWTVerifier verificiation = JWT.require(Algorithm.HMAC256(SECRET)).build();
 			DecodedJWT decodedJWT = verificiation.verify(token);
 			return getUserTokenDto(decodedJWT);
-		} catch (IllegalArgumentException | UnsupportedEncodingException ex) {
-			LOGGER.error("Exception while verifying token", ex);
+		} catch (Exception ex) {
+			LOGGER.error(String.format("Exception while verifying token. Token: %s", token), ex);
+			throw new InvalidJwtAuthenticationToken("Invalid Jwt Token", ex);
 		} 
-		return null;
-		
 	}
 	
 	private UserTokenDto getUserTokenDto(DecodedJWT decodedJWT) {
