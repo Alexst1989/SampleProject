@@ -12,7 +12,7 @@ public class CustomUserDetailsChecker implements UserDetailsChecker {
 	@Override
 	public void check(UserDetails toCheck) {
 		if (toCheck == null) {
-			throw new BadUserDetails("UserDetails are null");
+			throw new BadUserDetailsException("UserDetails are null");
 		}
 	}
 

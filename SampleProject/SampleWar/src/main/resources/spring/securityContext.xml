@@ -32,15 +32,6 @@
 			ref="customAuthenticationanager">
 		</constructor-arg>
 	</bean>
-
-	<security:authentication-manager alias="authManager" erase-credentials="true">
-		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="User" authorities="ROLE_USER" />
-				<security:user name="Admin" authorities="ROLE_ADMIN" />
-			</security:user-service>
-		</security:authentication-provider>
-	</security:authentication-manager>
 	
 	<bean id="userDetailsChecker" class="com.alex.store.security.CustomUserDetailsChecker"/>
 	

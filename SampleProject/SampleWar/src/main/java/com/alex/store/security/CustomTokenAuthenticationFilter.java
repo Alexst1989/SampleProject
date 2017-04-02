@@ -68,7 +68,7 @@ public class CustomTokenAuthenticationFilter extends AbstractAuthenticationProce
 				}
 			}
 		}
-		return null;
+		throw new InvalidJwtAuthenticationToken("No authentication token");
 	}
 
 }
