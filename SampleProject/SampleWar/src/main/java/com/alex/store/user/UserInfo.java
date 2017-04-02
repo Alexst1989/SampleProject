@@ -1,17 +1,25 @@
 package com.alex.store.user;
 
+import com.alex.store.vo.UserNameData;
+
 public class UserInfo {
 	
-	private String name;
+	private Integer id;
+	
+	private UserNameData userNameData;
 	
 	private String age;
-
-	public String getName() {
-		return name;
+	
+	private String login;
+	
+	private String password;
+	
+	public String getPassword() {
+		return password;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getAge() {
@@ -22,4 +30,29 @@ public class UserInfo {
 		this.age = age;
 	}
 
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public UserNameData getUserNameData() {
+		return userNameData;
+	}
+
+	public void setUserNameData(UserNameData userNameData) {
+		this.userNameData = userNameData;
+	}
+
+	
 }

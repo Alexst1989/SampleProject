@@ -16,7 +16,7 @@
     <properties>
     	<spring.context.version>4.3.5.RELEASE</spring.context.version>
     	<spring.web.version>4.3.5.RELEASE</spring.web.version>
-    	<spring.security.version>4.2.1.RELEASE</spring.security.version>
+    	<spring.security.version>4.2.2.RELEASE</spring.security.version>
     </properties>
 
     <dependencyManagement>

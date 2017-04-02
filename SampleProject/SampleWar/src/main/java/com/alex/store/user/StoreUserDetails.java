@@ -22,6 +22,16 @@ public class StoreUserDetails implements UserDetails {
 	private boolean credentialsNonExpired;
 	
 	private boolean enabled;
+	
+	private int userId;
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -86,6 +96,11 @@ public class StoreUserDetails implements UserDetails {
 		this.enabled = enabled;
 	}
 	
-	
+	public static StoreUserDetails fromUserInfo(UserInfo userInfo) {
+		StoreUserDetails userDetails = new StoreUserDetails();
+		userDetails.setUsername(userInfo.getUserNameData().getFirstName());
+		//TODO finish it
+		return userDetails;
+	}
 
 }

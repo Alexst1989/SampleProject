@@ -1,0 +1,18 @@
+{
+	"15" : { 
+		"userNameData": {
+			"firstName" : "Alex"
+		},
+		"login" : "alex9877",
+		"password" : "alex9877",
+		"age": "18"
+	},
+	"16": {
+		"userNameData": {
+			"firstName" : "Vova"
+		},
+		"login" : "vo_va87",
+		"password" : "vo_va87",
+		"age": "22"
+	}
+}
