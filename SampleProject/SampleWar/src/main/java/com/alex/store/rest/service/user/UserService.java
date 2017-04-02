@@ -6,7 +6,7 @@ import javax.ws.rs.Produces;
 
 import com.alex.store.user.UserInfo;
 
-@Path("UserService")
+@Path("userService")
 public class UserService {
 
 	@GET
@@ -14,7 +14,7 @@ public class UserService {
 	public UserInfo getUserInfo(String userId) {
 		UserInfo ui = new UserInfo();
 		ui.setAge("18");
-		ui.setName("Kristi");
+		//ui.setName("Kristi");
 		return ui;
 	}
 	

@@ -20,12 +20,15 @@ public class ServletUtils {
 	
 	@Autowired
 	private Environment env;
+	
+	@Autowired
+	private JsonParser jsonParser;
 
 	private static final Logger LOGGER = LogManager.getLogger(ServletUtils.class);
 	
 	public  <T extends RequestBody> T parseRequestBody(HttpServletRequest request, Class<T> clazz) {
 		try(InputStream is = request.getInputStream()) {
-			return JsonParser.parseJson(is, clazz);	
+			return jsonParser.parseJson(is, clazz);	
 		} catch (IOException e) {
 			LOGGER.error("Request does not contains body", e);
 			return null;
