@@ -5,3 +5,9 @@
 **/.settings
 **/.classpath
 **/.project
+
+.metadata/**
+.recommenders/**
+SampleProject/Docs/**
+SampleProject/SampleWar/logs/**
+rebel.xml

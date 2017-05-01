@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+
+	<security:http pattern="/token" security="none" />
+
+	<bean id="restAuthenticationEntryPoint" class="com.alex.store.security.RestAuthenticationEntryPoint" />
+
+	<security:http pattern="/rest/**" entry-point-ref="restAuthenticationEntryPoint"
+		use-expressions="true" auto-config="false" create-session="stateless">
+		<security:custom-filter ref="authenticationTokenProcessingFilter"
+			position="FORM_LOGIN_FILTER" />
+		<security:intercept-url pattern="/rest/**"
+			access="isAuthenticated()" />
+		<security:csrf token-repository-ref="csrfTokenRepository" />
+		<security:logout />
+	</security:http>
+
+	<bean id="csrfTokenRepository"
+		class="org.springframework.security.web.csrf.CookieCsrfTokenRepository" />
+
+	<bean class="com.alex.store.security.CustomTokenAuthenticationFilter"
+		id="authenticationTokenProcessingFilter">
+		<constructor-arg type="java.lang.String" value="/rest/**" />
+		<constructor-arg
+			type="org.springframework.security.authentication.AuthenticationManager"
+			ref="authenticationManager">
+		</constructor-arg>
+	</bean>
+
+	<bean id="userDetailsChecker" class="com.alex.store.security.CustomUserDetailsChecker" />
+
+	<bean id="storeAuthenticationUserDetailsService"
+		class="com.alex.store.security.StoreAuthenticationUserDetailsService">
+		<constructor-arg name="converter" ref="userInfoConverter" />
+		<constructor-arg name="userDao" ref="inMemoryUserStorage" />
+	</bean>
+
+	<bean id="jwtAuthenticationProvider" class="com.alex.store.security.CustomAuthenticationProvider">
+		<constructor-arg name="authDetailsService"
+			ref="storeAuthenticationUserDetailsService" />
+		<constructor-arg name="userDetailsChecker" ref="userDetailsChecker" />
+	</bean>
+
+	<security:authentication-manager alias="authenticationManager">
+		<security:authentication-provider ref="jwtAuthenticationProvider" />
+	</security:authentication-manager>
+
+	<!-- <bean id="authenticationManager"
+		class="org.springframework.security.authentication.ProviderManager">
+		<constructor-arg name="providers">
+			<list>
+				<ref bean="jwtAuthenticationProvider" />
+			</list>
+		</constructor-arg>
+	</bean> -->
+
+</beans>
