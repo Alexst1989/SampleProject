@@ -3,5 +3,6 @@
 	<domainName>alex.store.ru</domainName>
 	<productName>AlexStore</productName>
 	<tokenCookieName>STORE_TOKEN</tokenCookieName>
+	<tokenExpirationTime>1800</tokenExpirationTime>
 	<version>0.0.1</version>
 </configurationImpl>

@@ -30,5 +30,12 @@ public interface Configuration {
 	 */
 	String getTokenCookieName();
 	
+	/**
+	 * Expiration time for token cookie
+	 * 
+	 * @return number of seconds 
+	 */
+	long getTokenExpirationTime();
+	
 
 }

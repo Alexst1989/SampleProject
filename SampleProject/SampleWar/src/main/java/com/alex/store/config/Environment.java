@@ -39,6 +39,11 @@ public class Environment implements Configuration {
 	public String getTokenCookieName() {
 		return config.getTokenCookieName();
 	}
+
+	@Override
+	public long getTokenExpirationTime() {
+		return config.getTokenExpirationTime();
+	}
 	
 	
 	

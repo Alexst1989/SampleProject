@@ -6,17 +6,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class ConfigurationImpl implements Configuration {
 
-	
 	private String productName;
-	
 	
 	private String version;
 	
-	
 	private String domainName;
 	
-	
 	private String tokenCookieName;
+	
+	private long tokenExpirationTime;
 
 	@Override
 	public String getProductName() {
@@ -56,6 +54,16 @@ public class ConfigurationImpl implements Configuration {
 	@XmlElement
 	public void setTokenCookieName(String tokenCookieName) {
 		this.tokenCookieName = tokenCookieName;
+	}
+
+	@Override
+	public long getTokenExpirationTime() {
+		return tokenExpirationTime;
+	}
+
+	@XmlElement
+	public void setTokenExpirationTime(int tokenExpirationTime) {
+		this.tokenExpirationTime = tokenExpirationTime;
 	}
 	
 }
